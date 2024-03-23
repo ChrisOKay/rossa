@@ -1,0 +1,41 @@
+[build-system]
+requires = ["flit_core >=3.2,<4"]
+build-backend = "flit_core.buildapi"
+
+[project]
+name = "rossa"
+authors = [{name = "depmdlaborag01", email = "testdevelopment@pmdtec.com"}]
+readme = "README.md"
+license = {file = "LICENSE"}
+classifiers = ["License :: OSI Approved :: MIT License"]
+dependencies = []
+dynamic = ["version", "description"]
+requires-python = ">=3.12"
+
+[tool.setuptools.dynamic]
+dependencies = {file = ["requirements.txt"]}
+
+[tool.ruff]
+extend-exclude = ["tests"]
+extend-select = [
+    "D",  # pydocstyle
+    "PL",  # Pylint
+    "NPY",  # Numpy-specific
+    "N",  # PEP8 naming
+    "I",  # isort
+    "ANN",  # flake8-annotations
+]
+ignore = [
+    "D105",  # docstring in magic mathod
+    "D107",  # Missing docstring in __init__
+    "D203",  # 1 blank line required before class docstring
+    "D213",  # Multi-line docstring summary should start at the second line
+    "ANN002",  # *args typehint
+    "ANN003",  # **kwargs typehint
+    "ANN101",  # self annotation
+    "ANN204",  # return type for special method
+]
+line-length = 88  # Same as Black.
+
+[tool.ruff.pydocstyle]
+convention = "google"
