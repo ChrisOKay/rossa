@@ -5,6 +5,3 @@ class Rossa:
 
     def __init__(self, parameters):
         self.parameters = parameters
-
-    def run(self):
-        pass
